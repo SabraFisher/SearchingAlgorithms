@@ -8,7 +8,7 @@ namespace SearchingAlgorithms
         static void Main(string[] args)
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
-            Random rand = new Random();
+            
             // usage 100 thousand values
             stopwatch.Start();
             int[] largeArr = GenerateArray(1000000, 1, 1000);

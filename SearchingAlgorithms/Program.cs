@@ -8,10 +8,10 @@ namespace SearchingAlgorithms
         static void Main(string[] args)
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
-
+            Random rand = new Random();
             // usage 100 thousand values
             stopwatch.Start();
-            int[] largeArr = GenerateArray(1000,10);
+            int[] largeArr = GenerateArray(1000000, 1, 1000);
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
 
@@ -22,13 +22,14 @@ namespace SearchingAlgorithms
 
 
             // function
-            static int[] GenerateArray(int numElements, int start)
+            static int[] GenerateArray(int numElements, int min, int max)
             {
+                Random rand = new Random();
                 int[] arr = new int[numElements];
 
                 for (int i = 0; i < numElements; i++)
                 {
-                    arr[i] = start + i;// Generates a random integer within the specified range
+                    arr[i] = rand.Next();// Generates a random integer within the specified range
                 }
 
                 return arr;

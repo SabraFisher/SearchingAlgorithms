@@ -11,7 +11,7 @@ namespace SearchingAlgorithms
             
             // usage 100 thousand values
             stopwatch.Start();
-            int[] largeArr = GenerateArray(1000000, 1, 1000);
+            int[] largeArr = GenerateArray(1000000, 1);
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
 

@@ -25,31 +25,26 @@ namespace SearchingAlgorithms
         //    return -1; // Target not found
         //}
 
-        public static int RecursiveBinarySearch<T>(T[] arr, int low, int high, T searchTerm) where T : IComparable<T> 
+        public static int RecursiveBinarySearch<T>(T[] arr, int low, int high, T searchTerm) where T : IComparable<T>
         {
             int mid = (low + high) / 2;
-            if (arr[mid].Equals(searchTerm))
-            {
-                return mid;
-            }
 
-            if (arr[mid].CompareTo(searchTerm) > 0 && low < high)
+            if (high <= low)
             {
-                return RecursiveBinarySearch(arr, low, mid - 1, searchTerm);
-            }
 
-            else if (low >= high)
-            {
-                return -1;
-            }
-            else if (arr[mid].CompareTo(searchTerm) < 0)
-            {
+                if (arr[mid].Equals(searchTerm))
+                {
+                    return mid;
+                }
+
+                if (arr[mid].CompareTo(searchTerm) > 0)
+                {
+                    return RecursiveBinarySearch(arr, low, mid - 1, searchTerm);
+                }
+
                 return RecursiveBinarySearch(arr, mid + 1, high, searchTerm);
             }
-            else
-            {
-                return RecursiveBinarySearch(arr, low, mid - 1, searchTerm);
-            }
+            return -1;
         }
 
         static int IterativeBinarySearch(int[] arr, int x)

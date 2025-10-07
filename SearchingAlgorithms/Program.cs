@@ -8,10 +8,10 @@ namespace SearchingAlgorithms
         static void Main(string[] args)
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
-            
+
             // usage 100 thousand values
             stopwatch.Start();
-            int[] largeArr = GenerateArray(1000000, 1);
+            int[] largeArr = GenerateArray(1000000, 1, 2000000);
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
 
@@ -45,19 +45,37 @@ namespace SearchingAlgorithms
                     ts.Milliseconds / 10);
                 Console.WriteLine("Time Taken: " + elapsedTime);
             }
-//Implement a function that uses the System.Diagnostics.Stopwatch class to measure the execution time of
-//  the following sorting algorithms:
-//                              Quick Sort
-//                              Merge Sort
-//                              Bubble Sort
-//                              Insertion Sort
-
-//Measure the time taken to sort the array using each algorithm.Display the results in the format:
-
-//Algorithm: [Name] Time Taken: [milliseconds]
-//Based on the results, add a comment explaining why certain algorithms are more efficient than others for large datasets.
 
 
+            static List<int> GenerateBigList(int size)
+            {
+                List<int> list = new List<int>();
+                for (int i = 0; i < size; i++)
+                {
+                    list.Add(i);
+                }
+                return list;
+            }
+            List<int> nums = GenerateBigList(1000000);
+            nums.Add(-1);
+
+            //LINKED LIST EXAMPLE
+            //List<int> nums = new List<int>{ 2, 4, 1, 5, 6, 2, 9, 10, 222000 };
+
+            Console.WriteLine("Nums contains a lenght of :  " + nums.Count);
+            Console.WriteLine("First element of num is : " + nums[0]);
+            Console.WriteLine("Last element of num is : " + nums[nums.Count - 1]);)
+            //Implement a function that uses the System.Diagnostics.Stopwatch class to measure the execution time of
+            //  the following sorting algorithms:
+            //                              Quick Sort
+            //                              Merge Sort
+            //                              Bubble Sort
+            //                              Insertion Sort
+
+            //Measure the time taken to sort the array using each algorithm.Display the results in the format:
+
+            //Algorithm: [Name] Time Taken: [milliseconds]
+            //Based on the results, add a comment explaining why certain algorithms are more efficient than others for large datasets.
         }
     }
 }

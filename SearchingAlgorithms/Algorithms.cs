@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SearchingAlgorithms
 {
-    static class SearchAlgorithms
+    static class Algorithms
     {
         //public static int BinarySearch(int[] array, int target)
         //{
@@ -67,12 +67,14 @@ namespace SearchingAlgorithms
         }   
 
 
-         public static int LinearSearch(int[] array, int target)
+         public static int LinearSearch(int[] array, int searchTerm)  //returns first instance of searchTerm
         {
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < array.Length; i++) //search from the beginning of the array to the end
             {
-                if (array[i] == target)
+                if (array[i] == searchTerm)
+                {  //is this the search term?
                     return i;
+                }
             }
             return -1; // Target not found
         }

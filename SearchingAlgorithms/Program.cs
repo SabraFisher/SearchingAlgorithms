@@ -11,7 +11,22 @@ namespace SearchingAlgorithms
 
             // usage 100 thousand values
             stopwatch.Start();
-            int[] largeArr = GenerateArray(1000000, 1, 2000000);
+            int[] largeArr = GenerateArray(10, 1, 10);
+            stopwatch.Stop();
+            DisplayRuntime(stopwatch);
+
+            //print the array
+            stopwatch.Start();
+            for (int i = 0; i < largeArr.Length; i++)
+            {
+                Console.Write(largeArr[i] + " ");
+            }
+            stopwatch.Stop();
+            DisplayRuntime(stopwatch);
+
+            //search for a number in the array
+            stopwatch.Start();
+            Console.WriteLine("\n3 ws found at index:  " + Algorithms.LinearSearch(largeArr, 3));
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
 
@@ -29,7 +44,7 @@ namespace SearchingAlgorithms
 
                 for (int i = 0; i < numElements; i++)
                 {
-                    arr[i] = rand.Next();// Generates a random integer within the specified range
+                    arr[i] = rand.Next(min, max);// Generates a random integer within the specified range
                 }
 
                 return arr;

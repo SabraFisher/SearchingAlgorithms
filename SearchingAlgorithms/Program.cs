@@ -11,22 +11,36 @@ namespace SearchingAlgorithms
 
             // usage 100 thousand values
             stopwatch.Start();
-            int[] largeArr = GenerateArray(10, 1, 10);
+            int[] largeRandomArr = GenerateRandomArray(1000, 1, 1000);
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
 
+            stopwatch.Start();
+            int[] largeSortedArr = GenerateArray(1000, 1);
+            stopwatch.Stop();
+            DisplayRuntime(stopwatch);
+
+            Console.WriteLine();
+
             //print the array
             stopwatch.Start();
-            for (int i = 0; i < largeArr.Length; i++)
+            for (int i = 0; i < largeRandomArr.Length; i++)
             {
-                Console.Write(largeArr[i] + " ");
+                Console.Write(i + ": " + largeRandomArr[i]);
             }
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
 
             //search for a number in the array
             stopwatch.Start();
-            Console.WriteLine("\n3 ws found at index:  " + Algorithms.LinearSearch(largeArr, 3));
+            Console.WriteLine("\n3 ws found at index:  " + Algorithms.LinearSearch(largeRandomArr, 3));
+            stopwatch.Stop();
+            DisplayRuntime(stopwatch);
+
+
+            //search for a number in the array
+            stopwatch.Start();
+            Console.WriteLine("\n3 ws found at index:  " + Algorithms.LinearSearch(largeSortedArr, 3));
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
 
@@ -36,13 +50,26 @@ namespace SearchingAlgorithms
             // Write individual functions for each algorithm here (Bubble, Insertion, Merge, and Quick sort)
 
 
-            // function
-            static int[] GenerateArray(int numElements, int min, int max)
+            // generate sequential array function
+            static int[] GenerateArray(int numElements, int start)
+            {
+                int[] arr = new int[numElements];
+
+                for (int i = 0; i < numElements; i++)  //process each element in the array
+                {
+                    arr[i] = start + i;
+                }
+
+                return arr;
+            }
+
+            // generate random array function
+            static int[] GenerateRandomArray(int numElements, int min, int max)
             {
                 Random rand = new Random();
                 int[] arr = new int[numElements];
 
-                for (int i = 0; i < numElements; i++)
+                for (int i = 0; i < numElements; i++)  //process each element in the array
                 {
                     arr[i] = rand.Next(min, max);// Generates a random integer within the specified range
                 }
@@ -59,6 +86,7 @@ namespace SearchingAlgorithms
                     ts.Hours, ts.Minutes, ts.Seconds,
                     ts.Milliseconds / 10);
                 Console.WriteLine("Time Taken: " + elapsedTime);
+                stopwatch.Reset();
             }
 
 
@@ -77,9 +105,9 @@ namespace SearchingAlgorithms
             //LINKED LIST EXAMPLE
             //List<int> nums = new List<int>{ 2, 4, 1, 5, 6, 2, 9, 10, 222000 };
 
-            Console.WriteLine("Nums contains a lenght of :  " + nums.Count);
-            Console.WriteLine("First element of num is : " + nums[0]);
-            Console.WriteLine("Last element of num is : " + nums[nums.Count - 1]);)
+            Console.WriteLine("Nums contains a length of :  " + nums.Count);
+            Console.WriteLine("First element of nums is : " + nums[0]);
+            Console.WriteLine("Last element of nums is : " + nums[nums.Count - 1]);
             //Implement a function that uses the System.Diagnostics.Stopwatch class to measure the execution time of
             //  the following sorting algorithms:
             //                              Quick Sort

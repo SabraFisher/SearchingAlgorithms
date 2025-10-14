@@ -7,7 +7,31 @@ using System.Threading.Tasks;
 namespace SearchingAlgorithms
 {
     static class Algorithms
-    {
+            {
+        //todo- refactor linear search to be generic
+        public static int LinearSearch<T>(T[] arr, T searchTerm) where T : IComparable<T>  //returns first instance of searchTerm
+        {
+            for (int i = 0; i < arr.Length; i++) //search from the beginning of the array to the end
+            {
+                if (arr[i].Equals(searchTerm))
+                {  //is this the search term?
+                     return i ;
+                }
+            }
+            return -1; // Target not found
+        }
+
+        public static int LinearSearch(int[] array, int searchTerm)  //returns first instance of searchTerm
+        {
+            for (int i = 0; i < array.Length; i++) //search from the beginning of the array to the end
+            {
+                if (array[i] == searchTerm)
+                {  //is this the search term?
+                    return i;
+                }
+            }
+            return -1; // Target not found
+        }
         //public static int BinarySearch(int[] array, int target)
         //{
         //    int left = 0;
@@ -67,17 +91,7 @@ namespace SearchingAlgorithms
         }   
 
 
-         public static int LinearSearch(int[] array, int searchTerm)  //returns first instance of searchTerm
-        {
-            for (int i = 0; i < array.Length; i++) //search from the beginning of the array to the end
-            {
-                if (array[i] == searchTerm)
-                {  //is this the search term?
-                    return i;
-                }
-            }
-            return -1; // Target not found
-        }
+      
 
 
     }

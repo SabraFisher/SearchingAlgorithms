@@ -6,7 +6,9 @@ namespace SearchingAlgorithms
     internal class Program
     {
         static void Main(string[] args)
-        {
+        {   //linked list (ordered, sorted)
+
+            // queue - ordered first in first out
             CustomLinkedList myBBQ = new CustomLinkedList();
             int choice = -1;
             bool isRunning = true;
@@ -22,15 +24,41 @@ namespace SearchingAlgorithms
                         break;
                     case 1:
                         //add an item to linked list
-                        myBBQ.Add("Text");
+                        
+                        Console.Write("Enter an item to add to the linked list: ");
+                        string answer = Console.ReadLine();
+                        myBBQ.AddToBack(answer);
+                        PauseForInput();
                         break;
                     case 2:
                         Console.WriteLine(myBBQ.ToString());
+                        PauseForInput();
                         break;
+                    case 3:
+                        try
+                        {
+                            //pop an item off the list
+                            Console.WriteLine("Popped item: " + myBBQ.Pop());
+                            PauseForInput();
+                            break;
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                            PauseForInput();
+                            break;
+                        }
                     default:
                         Console.WriteLine("Invalid choice. Please try again.");
+                        PauseForInput();
                         break;
                 }
+            }
+
+            static void PauseForInput()
+            {
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadLine();
             }
 
             static void PrintMenu()

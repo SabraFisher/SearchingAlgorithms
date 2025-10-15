@@ -93,6 +93,22 @@ namespace SearchingAlgorithms
             }
         }
 
+        //Pop first item off the list
+        public string? Pop()
+        {
+            // is head null, if so return null
+            if (head == null)
+            {
+                throw new Exception("List is empty");
+            }
+            
+            // get the data from the head
+            string data = head.data;
+            // move the head to the next node
+            head = head.next;
+            // return the data
+            return data;
+        }
         public override string? ToString()
         {
             string result = "";
@@ -107,7 +123,7 @@ namespace SearchingAlgorithms
             // head has contents, loop over it, printing the data
             while (pos != null)
             {
-                result += pos.data;
+                result += pos.data + "\n";
                 pos = pos.next;
             }
 

@@ -29,23 +29,21 @@ namespace SearchingAlgorithms
         {   // only works on sorted arrays
             //base case - if low is greater than high, the searchTerm is not in the array
             int mid = low + ((high-low) / 2);
-
+            //base case - found the searchTerm at midpoint
             if (arr[mid].Equals(searchTerm))
             {
                 return mid;
             }
-
-            //recursive case
+            //recursive case if in the left half
+            if (arr[mid].CompareTo(searchTerm) > 0) // mid is greater than searchTerm
+            {
+                return BinarySearch(arr, low, mid - 1, searchTerm);
+            }
+            //recursive case if in the right half
             if (arr[mid].CompareTo(searchTerm) < 0) // mid is less than searchTerm
             {
                 return BinarySearch(arr, mid + 1, high, searchTerm);
             }
-            
-            else if (arr[mid].CompareTo(searchTerm) > 0) // mid is greater than searchTerm
-            {
-                return BinarySearch(arr, low, mid - 1, searchTerm);
-            }
-
             return -1; // if target not found
         }
 

@@ -6,9 +6,14 @@ namespace SearchingAlgorithms
     internal class Program
     {
         static void Main(string[] args)
-        {   //linked list (ordered, sorted)
+        {   // linked list (ordered, sorted)
             // queue - ordered first in first out
             CustomLinkedList myBBQ = new CustomLinkedList();
+
+            // example of creating a node directly
+            // node is usually created inside the linked list class
+            // node is item on linked list 
+            Node node = new ("Toast");
             int choice = -1;
             bool isRunning = true;
             while (isRunning)
@@ -158,17 +163,28 @@ namespace SearchingAlgorithms
             //}
 
 
-            //static List<int> GenerateBigList(int size)
-            //{
-            //    List<int> list = new List<int>();
-            //    for (int i = 0; i < size; i++)
-            //    {
-            //        list.Add(i);
-            //    }
-            //    return list;
-            //}
-            //List<int> nums = GenerateBigList(1000000);
-            //nums.Add(-1);
+            static List<int> GenerateBigList(int size)
+            {
+                List<int> list = new List<int>();
+                for (int i = 0; i < size; i++)
+                {
+                    list.Add(i);
+                }
+                return list;
+            }
+
+            //Linked list
+            List<int> nums = GenerateBigList(1000000);
+            Node node1 = new Node("Toast");
+            Node node2 = new Node("is");
+            Node node3 = new Node("great");
+
+            node1.next = node2;
+            node2.next = node3; 
+
+            Console.WriteLine("The sentence reads: " + node1.data + " " + node1.next.data + " " + node1.next.next.data);
+
+            nums.Add(-1);
 
             ////LINKED LIST EXAMPLE
             ////List<int> nums = new List<int>{ 2, 4, 1, 5, 6, 2, 9, 10, 222000 };

@@ -102,7 +102,7 @@ namespace SearchingAlgorithms
 
             ////search for a number in the array
             //stopwatch.Start();
-            //Console.WriteLine("\n3 ws found at index:  " + Algorithms.LinearSearch(largeRandomArr, 3));
+            //Console.WriteLine("\n3 was found at index:  " + Algorithms.LinearSearch(largeRandomArr, 3));
             //stopwatch.Stop();
             //DisplayRuntime(stopwatch);
 

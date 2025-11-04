@@ -38,12 +38,12 @@ namespace SearchingAlgorithms
             //recursive case
             if (arr[mid].CompareTo(searchTerm) < 0) // mid is less than searchTerm
             {
-                BinarySearch(arr, mid + 1, high, searchTerm);
+                return BinarySearch(arr, mid + 1, high, searchTerm);
             }
             
             else if (arr[mid].CompareTo(searchTerm) > 0) // mid is greater than searchTerm
             {
-                BinarySearch(arr, low, mid - 1, searchTerm);
+                return BinarySearch(arr, low, mid - 1, searchTerm);
             }
 
             return -1; // if target not found

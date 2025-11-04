@@ -13,7 +13,6 @@ namespace SearchingAlgorithms
             // example of creating a node directly
             // node is usually created inside the linked list class
             // node is item on linked list 
-            Node node = new ("Toast");
             int choice = -1;
             bool isRunning = true;
             while (isRunning)

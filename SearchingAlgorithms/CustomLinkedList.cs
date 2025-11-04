@@ -10,7 +10,6 @@ namespace SearchingAlgorithms
     public class CustomLinkedList
     {
         // this is the linked list container - Represents the whole list
-
         // THE MOST IMPORTANT - do not lose this ever
         private Node head;
 

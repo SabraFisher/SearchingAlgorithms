@@ -15,6 +15,7 @@ namespace SearchingAlgorithms
         // pointer - the next piece of data
         public Node next;
 
+        //could have another pointer to point at the last piece of data
 
         // constructor
         public Node(string value)

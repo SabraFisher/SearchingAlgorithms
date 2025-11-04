@@ -7,7 +7,6 @@ namespace SearchingAlgorithms
     {
         static void Main(string[] args)
         {   //linked list (ordered, sorted)
-
             // queue - ordered first in first out
             CustomLinkedList myBBQ = new CustomLinkedList();
             int choice = -1;
@@ -177,6 +176,7 @@ namespace SearchingAlgorithms
             //Console.WriteLine("Nums contains a length of :  " + nums.Count);
             //Console.WriteLine("First element of nums is : " + nums[0]);
             //Console.WriteLine("Last element of nums is : " + nums[nums.Count - 1]);
+
             ////Implement a function that uses the System.Diagnostics.Stopwatch class to measure the execution time of
             ////  the following sorting algorithms:
             ////                              Quick Sort

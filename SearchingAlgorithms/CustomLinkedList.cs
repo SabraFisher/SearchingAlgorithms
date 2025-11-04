@@ -18,9 +18,9 @@ namespace SearchingAlgorithms
             head = null;
         }
 
-        public CustomLinkedList(string test)
+        public CustomLinkedList(string value)
         {
-            head = new Node(test);
+            head = new Node(value);
         }
 
         // ADD A NEW NODE TO A SPECIFIC PART OF THE LIST
@@ -55,7 +55,7 @@ namespace SearchingAlgorithms
         }
 
         // insert alphabetically
-        public void Add(string value)
+        public void AddAlpha(string value)
         {
             var obj = new Node(value);
 
@@ -111,17 +111,15 @@ namespace SearchingAlgorithms
         {
             string result = "";
             Node pos = head;
-
-            // head is empty, return nothing
+            // head is empty return nothing
             if (pos == null)
             {
                 return result;
             }
-
             // head has contents, loop over it, printing the data
             while (pos != null)
             {
-                result += pos.data + "\n";
+                result += pos.data;
                 pos = pos.next;
             }
             return result;

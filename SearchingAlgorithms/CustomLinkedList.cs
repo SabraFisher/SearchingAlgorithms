@@ -18,12 +18,12 @@ namespace SearchingAlgorithms
             head = null;
         }
 
-        public CustomLinkedList(string value)
+        public CustomLinkedList(string test)
         {
-            head = new Node(value);
+            head = new Node(test);
         }
 
-
+        // ADD A NEW NODE TO A SPECIFIC PART OF THE LIST
         // add a new node to the end list
         public void AddToBack(string value)
         {
@@ -35,16 +35,13 @@ namespace SearchingAlgorithms
                 head = obj;
                 return;
             }
-
             // start at the head
             Node pos = head;
-
             // loop until i get to the end of the list
             while (pos.next != null)
             {
                 pos = pos.next;
             }
-
             // add the new node there
             pos.next = obj;
         }
@@ -108,6 +105,8 @@ namespace SearchingAlgorithms
             // return the data
             return data;
         }
+
+        // to string the list
         public override string? ToString()
         {
             string result = "";
@@ -125,15 +124,7 @@ namespace SearchingAlgorithms
                 result += pos.data + "\n";
                 pos = pos.next;
             }
-
             return result;
         }
-
-        // add something to the list at a specific position
-
-        // remove something from the list at a specific position
-
-        // to string the list
-
     }
 }

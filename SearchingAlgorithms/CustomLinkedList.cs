@@ -54,39 +54,91 @@ namespace SearchingAlgorithms
             head.next = oldHead; // putting the rest of the list back in line
         }
 
-        // insert alphabetically
-        public void AddAlpha(string value)
+        //// insert alphabetically
+        //public void AddAlpha(string value)
+        //{
+        //    var obj = new Node(value);
+
+        //    // head is empty, make new head
+        //    if (head == null)
+        //    {
+        //        head = obj;
+        //    }
+        //    else // otherwise, walk along chain
+        //    {
+        //        Node previousNode = null; // keep track of previous node here
+        //        Node currentNode = head; // keep track of current node here
+
+        //        while (currentNode != null && currentNode.data.CompareTo(obj.data) < 0) // walk until current is null or value is equal or greater
+        //        {
+        //            previousNode = currentNode;
+        //            currentNode = currentNode.next;
+        //        }
+
+        //        // we have our position, insert it
+        //        if (previousNode == null) // if no previous node, insert as the head
+        //        {
+        //            obj.next = head;
+        //            head = obj;
+        //        }
+        //        else // otherwise insert after the previous node and before the current node (insert in middle)
+        //        {
+        //            obj.next = previousNode.next;
+        //            previousNode.next = obj;
+        //        }
+        //    }
+        //}
+
+        public void Add(string value)
         {
-            var obj = new Node(value);
+            // EDGE CASES nothing in list, 1 item in list, new item should item should be inserted at front
+            //item should be inserted somewhere in the middle
+            //item should be inserted at end of list
+            //same items added refpeats
+            Node pos = head;
+            Node obj = new Node(value);
 
-            // head is empty, make new head
-            if (head == null)
-            {
+            //nothing in list or item comes before the first item in the list, add at front
+            if (pos == null || pos.data.CompareTo(obj.data) > 0)
+            {   
+                obj.next = head;
                 head = obj;
+                return;
             }
-            else // otherwise, walk along chain
+            
+            //walk along the list
+                // does the item go here?
+                    //new item
+                //does the item go later
+
+            //
+            //while (pos.next != null)
+            //{
+            //    if (pos.data.CompareTo(obj.data) == 0)
+            //    {
+            //        // insert here
+            //        obj.next = pos.next;
+            //        pos.next = obj;
+            //        return;
+            //    }
+
+            //    if (pos.data.CompareTo(obj.data) < 0)
+            //    {
+            //        pos = pos.next;
+            //    }
+            //}
+
+            //multiple items in list: position somewhere in the middle, walk the list until we find where to insert
+            while (pos != null && pos.data.CompareTo(obj.data) < 0)
             {
-                Node previousNode = null; // keep track of previous node here
-                Node currentNode = head; // keep track of current node here
-
-                while (currentNode != null && currentNode.data.CompareTo(obj.data) < 0) // walk until current is null or value is equal or greater
-                {
-                    previousNode = currentNode;
-                    currentNode = currentNode.next;
-                }
-
-                // we have our position, insert it
-                if (previousNode == null) // if no previous node, insert as the head
-                {
-                    obj.next = head;
-                    head = obj;
-                }
-                else // otherwise insert after the previous node and before the current node (insert in middle)
-                {
-                    obj.next = previousNode.next;
-                    previousNode.next = obj;
-                }
+                pos = pos.next;
             }
+            obj.next = pos.next;
+            pos.next = obj;
+
+
+            
+
         }
 
         //Pop first item off the list
